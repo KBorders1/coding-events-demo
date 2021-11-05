@@ -2,8 +2,6 @@ package org.launchcode.codingevents.controllers;
 
 
 import org.launchcode.codingevents.data.EventCategoryRepository;
-import org.launchcode.codingevents.data.EventRepository;
-import org.launchcode.codingevents.models.Event;
 import org.launchcode.codingevents.models.EventCategory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -38,7 +36,8 @@ public class EventCategoryController {
     }
 
     @PostMapping("create")
-    public String processCreateEventCategoryForm(@Valid @ModelAttribute EventCategory eventCategory, Errors errors, Model model) {
+    public String processCreateEventCategoryForm(@Valid @ModelAttribute EventCategory eventCategory,
+                                                 Errors errors, Model model) {
 
         if (errors.hasErrors()) {
             model.addAttribute("title", "Create Category");
